@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Image Gallery Reveal</title>
+  <title>luke.personal</title>
+  
   <style>
     #gallery {
       display: none;
@@ -16,7 +17,7 @@
 
     button {
       padding: 10px 20px;
-      background-color: #0066cc;
+      background-color: #71a3d4;
       color: white;
       border: none;
       border-radius: 5px;
@@ -24,21 +25,35 @@
     }
 
     button:hover {
-      background-color: #004999;
+      background-color: #2273ca;
     }
   </style>
 </head>
 <body>
 
-  <button onclick="document.getElementById('gallery').style.display = 'flex'">
-    Show Gallery
-  </button>
+  <h1>Luke Rasmussen</h1>
+
+  <!--notes for computer architecture-->
+  <button class="float-btn" onclick="toggleGallery()">CSE-100</button>
+
+  
 
   <div id="gallery" style="display: none; flex-wrap: wrap; gap: 10px;">
     <img src="CSE 100-1.jpg" alt="Image 1">
     <img src="CSE 100-2.jpg" alt="Image 2">
     <img src="CSE 100-3.jpg" alt="Image 3">
   </div>
+
+  <script>
+    function toggleGallery() {
+      const gallery = document.getElementById("gallery");
+      if (gallery.style.display === "flex") {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "flex";
+      }
+    }
+  </script>
 
 </body>
 </html>
