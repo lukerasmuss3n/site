@@ -1,0 +1,60 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #444;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Links */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004999;
+}
