@@ -1,59 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>luke.personal</title>
-  
+  <meta charset="UTF-8" />
+  <title>Luke's Synth</title>
+
+  <!-- p5.js + p5.sound.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/addons/p5.sound.min.js"></script>
+
   <style>
-    #gallery {
-      display: none;
-      margin-top: 20px;
-    }
-
-    #gallery img {
-      width: 200px;
-      margin: 10px;
-      border-radius: 8px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #71a3d4;
+    body {
+      margin: 0;
+      background: #000;
       color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      font-family: monospace;
+      text-align: center;
     }
-
-    button:hover {
-      background-color: #2273ca;
+    canvas {
+      display: block;
+      margin: auto;
     }
   </style>
 </head>
 <body>
 
-  <h1>Luke Rasmussen</h1>
+  <h1>🎹 Luke's Web Synth</h1>
+  <p>Press keys A–J or W/E/T/Y/U to play notes</p>
+  <p>Use ➡️ and ⬅️ arrow keys to switch wave type</p>
 
-  <!--notes for computer architecture-->
-  <button class="float-btn" onclick="toggleGallery()">CSE-100</button>
-
-  
-
-  <div id="gallery" style="display: none; flex-wrap: wrap; gap: 10px;">
-    <img src="CSE 100-1.jpg" alt="Image 1">
-    <img src="CSE 100-2.jpg" alt="Image 2">
-    <img src="CSE 100-3.jpg" alt="Image 3">
-  </div>
-
-  <script>
-    function toggleGallery() {
-      const gallery = document.getElementById("gallery");
-      if (gallery.style.display === "flex") {
-        gallery.style.display = "none";
-      } else {
-        gallery.style.display = "flex";
-      }
-    }
-  </script>
+  <!-- Your sketch -->
+  <script src="sketch.js"></script>
 
 </body>
 </html>
