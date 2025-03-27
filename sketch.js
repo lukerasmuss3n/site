@@ -4,27 +4,44 @@ let color_1 = 255, color_2 = 255, color_3 = 255;
 let count = 0, count2 = 0;
 let wave_type = 0;
 
-let s = 'White keys:  |A|S|D|F|G|H|J|   Black Keys:   |W|E| and |T|Y|U|';
-let p = 'Click window to start.';
+
+let sketchRunning = false;
 
 function setup() {
-  createCanvas(800, 800);
-  textAlign(CENTER);
-  textSize(16);
-
-  osc = new p5.Oscillator('sine');
-  osc2 = new p5.Oscillator('sawtooth');
-
-  osc.start();
-  osc.amp(0);
-  osc2.start();
-  osc2.amp(0);
-}
+    createCanvas(800, 800);
+    noLoop(); // ⛔️ don't run draw() yet
+  
+    // Set up sound
+    osc = new p5.Oscillator('sine');
+    osc2 = new p5.Oscillator('sawtooth');
+    osc.start(); osc.amp(0);
+    osc2.start(); osc2.amp(0);
+  
+    // Hook up toggle button
+    const toggleBtn = document.getElementById('toggleBtn');
+    toggleBtn.addEventListener('click', () => {
+      getAudioContext().resume(); // allow sound
+  
+      sketchRunning = !sketchRunning;
+  
+      if (sketchRunning) {
+        loop();
+        toggleBtn.textContent = "Stop Synth";
+        toggleBtn.classList.remove('off');
+      } else {
+        noLoop();
+        osc.amp(0, 0.1);
+        osc2.amp(0, 0.1);
+        playing = false;
+        toggleBtn.textContent = "Start Synth";
+        toggleBtn.classList.add('off');
+      }
+    });
+  }
 
 function draw() {
   background(255);
-  text(s, width / 2, 570);
-  text(p, width / 2, 530);
+
 
   if (playing) {
     if (wave_type === 0) {
@@ -47,6 +64,18 @@ function draw() {
 
 function mousePressed() {
   getAudioContext().resume();
+
+
+  // Toggle active state
+  active = !active;
+
+  // Stop oscillators when deactivating
+  if (!active) {
+    osc.amp(0, 0.1);
+    osc2.amp(0, 0.1);
+    playing = false;
+  }
+
 }
 
 function keyReleased() {
